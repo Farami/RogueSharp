@@ -13,7 +13,12 @@ let drawTile tile =
 let drawWorld world = 
   List.iter drawTile world
 
-let drawPlayer player =
+let drawPlayer world =
+  let player = world.player
+  let tile = List.find (fun t -> t.position = player.previousPosition) world.tiles
+
+  Console.SetCursorPosition(player.previousPosition.x, player.previousPosition.y)
+  Console.Write(tile.tile);
   Console.SetCursorPosition(player.currentPosition.x, player.currentPosition.y)
   Console.Write('@')
 

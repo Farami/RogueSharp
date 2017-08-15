@@ -16,7 +16,7 @@ let createTile y x char = { position = { x = x; y = y }; tile = char }
 let parseTiles (list:string list) = 
    list
    |> Seq.mapi (fun y s -> Seq.mapi (createTile y) s)
-   |> Seq.concat 
+   |> Seq.concat
    |> Seq.toList
 
 let rec getInput () =
@@ -58,9 +58,7 @@ let move input world =
   | _ -> { player with currentPosition = newCoordinates; previousPosition = player.currentPosition }
 
 let rec gameLoop world =
-  Console.Clear()
-  drawWorld world.tiles
-  drawPlayer world.player
+  drawPlayer world
   resetCursor()
   let input = getInput()
   match input with
@@ -71,5 +69,6 @@ let rec gameLoop world =
 [<EntryPoint>]
 let main argv = 
   let world = { tiles = parseTiles template; player = { currentPosition = { x = 2; y = 2 }; previousPosition = { x = 2; y = 2 } } }
+  drawWorld world.tiles
   gameLoop world
   0 // return an integer exit code
