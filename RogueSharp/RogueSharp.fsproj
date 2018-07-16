@@ -56,8 +56,11 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Types.fs" />
-    <Compile Include="MapGenerator.fs" />
+    <Compile Include="Enemy.fs" />
+    <Compile Include="World.fs" />
+    <Compile Include="Input.fs" />
     <Compile Include="Graphics.fs" />
+    <Compile Include="Interface.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />
